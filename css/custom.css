@@ -1,0 +1,14 @@
+/* 首页Banner大标题 - 颜色、字体、大小 */
+.banner-title {
+  color: #62b6e7 !important; /* 标题颜色（浅蓝色，可改#ff0000=红色、#333=黑色） */
+  font-family: "ScriptC", "PingFang SC", sans-serif !important; /* 字体（微软雅黑/苹方） */
+  font-size: 36px !important; /* 字体大小（默认可能28px，调大更醒目） */
+  font-weight: bold !important; /* 加粗（bold=加粗，normal=常规） */
+}
+
+/* Banner副标题样式 */
+.banner-subtitle {
+  color: #999 !important; /* 副标题灰色 */
+  font-size: 18px !important;
+  font-style: italic !important; /* 斜体 */
+}

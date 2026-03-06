@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ZH-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  
+    <link rel="icon" href="/assets/logo.png">
+  
+  
+  <title>普通物理学II（H） | icyice&#39;s SEKAI</title>
+  <link rel="canonical" href="http://example.com/1145/01/04/%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A6II/">
+  <meta name="author" content="icyice" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="普通物理学, 混合" />
+  
+  <meta name="description" content="本篇文章主要分享普通物理学II课程的相关资料。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="普通物理学II（H）">
+<meta property="og:url" content="http://example.com/1145/01/04/%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A6II/index.html">
+<meta property="og:site_name" content="icyice&#39;s SEKAI">
+<meta property="og:description" content="本篇文章主要分享普通物理学II课程的相关资料。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/1145/01/04/%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A6II/https:/wiki.krt.moe/images/default.webp">
+<meta property="article:published_time" content="1145-01-03T15:54:17.000Z">
+<meta property="article:modified_time" content="2026-03-06T07:37:34.574Z">
+<meta property="article:author" content="icyice">
+<meta property="article:tag" content="普通物理学">
+<meta property="article:tag" content="混合">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/1145/01/04/%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A6II/https:/wiki.krt.moe/images/default.webp">
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kr-core.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/highlight.js/night-eighties.min.css" media="all"></link>
+  
+  <link rel="stylesheet" id="theme-light-css" href="/css/kr-theme/light.min.css" media="all"></link>
+  <link rel="stylesheet" id="theme-dark-css" href="/css/kr-theme/dark.min.css" media="(prefers-color-scheme: dark)"></link>
+  <script src="/js/kr-theme.min.js"></script>
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></link>
+  
+    <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></link>
+  
+  
+    <link rel="stylesheet" href="/vendors/viewerjs@1.11.6/dist/viewer.min.css"></link>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  
+    <script src="/vendors/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+  
+  <!-- 自定义站点横幅和背景 -->
+  <style>
+    
+      .kratos-cover.kratos-cover-2 {
+        background-image: url('');
+      }
+      html[data-theme="dark"] .kratos-cover.kratos-cover-2 {
+        background-image: url('');
+      }
+    
+    
+      @media(min-width:768px) {
+        body.custom-background {
+          background-image: url('/assets/bg.png');
+        }
+        html[data-theme="dark"] body.custom-background {
+          background-image: url('/assets/bg.png');
+        }
+      }
+    
+    
+      .widget-kratos-about .photo-background {
+        background-image: url('/images/default.webp');
+      }
+      html[data-theme="dark"] .widget-kratos-about .photo-background {
+        background-image: url('/images/default.webp');
+      }
+    
+  </style>
+
+  <!-- 额外的追加注入项 -->
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<style>
+  /* 原有字体样式 + 仙女尘样式（保留不变） */
+  @font-face {
+    font-family: 'MegisticaDreams';
+    src: url('Megistica-Dreams-2.otf') format('otf'),
+         url('/fonts/my-custom-font.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .kratos-cover .desc h2 {
+    color: #FFFACD !important;
+    text-transform: none;
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-family: 'MegisticaDreams', 'ScriptC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    letter-spacing : 5px;
+  }
+  body {
+    cursor: none !important;
+    overflow-x: hidden;
+  }
+  a, button, input, textarea, select, label, 
+  [onclick], [tabindex]:not([tabindex="-1"]),
+  .kratos-nav-item a, .post-content a, .widget a {
+    cursor: none !important; /* 强制隐藏原生光标 */
+  }
+  .fairy-cursor {
+    position: fixed;
+    width: 40px; /* 光标大小，根据图片调整 */
+    height: 40px;
+    background: url('/assets/cursor.png') center/contain no-repeat; /* 网络光标图片 */
+    /* 若用动态GIF光标，直接替换图片链接即可 */
+    /* background: url('https://cdn.jsdelivr.net/gh/xxxxx/animate-cursor.gif') center/contain no-repeat; */
+    opacity: 0.9;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: screen;
+    /* 可选：添加呼吸动画 */
+    animation: breathe 2s infinite ease-in-out;
+  }
+  /* 呼吸动画（让光标更灵动） */
+  @keyframes breathe {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+  }
+  /* 点击时放大+旋转 */
+  .fairy-cursor.click {
+    transform: translate(-50%, -50%) scale(1.3) rotate(180deg);
+    opacity: 0.7;
+    transition: all 0.2s ease;
+  }
+  .fairy-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99998;
+    mix-blend-mode: screen;
+    border-radius: 50%;
+  }
+  /* ========== 新增：视频背景样式 ========== */
+  /* 隐藏原有静态背景图片 */
+  body {
+    background-image: none !important;
+  }
+  /* 视频容器：全屏覆盖、固定定位、层级最低 */
+  .video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -9999; /* 确保在所有内容下方 */
+    overflow: hidden;
+    background: #000
+  }
+  /* 视频本身：适配容器、静音循环、自动播放 */
+  .video-bg video {
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain
+  }
+  /* 兼容：无视频时显示备用静态背景 */
+  .video-bg-fallback {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -9998;
+    background: url('/assets/bg.png') center/cover no-repeat;
+  }
+</style>
+<!-- 修复后的仙女尘脚本：等待页面完全加载后执行 -->
+<script>
+  // 关键修复：等待DOM加载完成再执行脚本
+  document.addEventListener('DOMContentLoaded', function() {
+    // 创建自定义光标
+    const cursor = document.createElement('div');
+    cursor.className = 'fairy-cursor';
+    document.body.appendChild(cursor);
+
+    // 鼠标移动跟随 + 生成粒子
+    document.addEventListener('mousemove', function(e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      if (Math.random() > 0.1) return; // 提高粒子生成频率，更容易看到效果
+      createFairyParticle(e.clientX, e.clientY);
+    });
+
+    // 鼠标点击效果
+    document.addEventListener('mousedown', function() {
+      cursor.classList.add('click');
+      for (let i = 0; i < 10; i++) {
+        createFairyParticle(cursor.offsetLeft, cursor.offsetTop);
+      }
+    });
+    document.addEventListener('mouseup', function() {
+      cursor.classList.remove('click');
+    });
+
+    // 生成粒子函数
+    function createFairyParticle(x, y) {
+      const particle = document.createElement('div');
+      particle.className = 'fairy-particle';
+      document.body.appendChild(particle);
+
+      const colors = ['#ff69b4', '#ff8c00', '#ffff00', '#00ff99', '#00ffff', '#9900ff'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const size = Math.random() * 8 + 2;
+      const speedX = Math.random() * 6 - 3;
+      const speedY = Math.random() * 6 - 3;
+      const opacity = Math.random() * 0.8 + 0.2;
+      const lifetime = Math.random() * 80 + 40;
+
+      particle.style.left = x - size/2 + 'px';
+      particle.style.top = y - size/2 + 'px';
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.background = color;
+      particle.style.opacity = opacity;
+
+      let frame = 0;
+      function animateParticle() {
+        frame++;
+        if (frame > lifetime) {
+          particle.remove();
+          return;
+        }
+        const currentX = parseFloat(particle.style.left) + speedX;
+        const currentY = parseFloat(particle.style.top) + speedY;
+        const currentOpacity = opacity * (1 - frame / lifetime);
+        particle.style.left = currentX + 'px';
+        particle.style.top = currentY + 'px';
+        particle.style.opacity = currentOpacity;
+        requestAnimationFrame(animateParticle);
+      }
+      animateParticle();
+    }
+
+    // 清理资源
+    window.addEventListener('beforeunload', function() {
+      cursor.remove();
+      document.querySelectorAll('.fairy-particle').forEach(p => p.remove());
+    });
+  });
+</script>
+<!-- ========== 新增：视频背景 HTML 标签 ========== -->
+<div class="video-bg">
+  <video autoplay loop muted playsinline preload="auto">
+    <!-- 核心：MP4 视频路径（对应 source/assets/bg-video.mp4） -->
+    <source src="/assets/bg-video1.mp4" type="video/mp4">
+    <!-- 降级：浏览器不支持视频时显示静态背景 -->
+    <div class="video-bg-fallback"></div>
+  </video>
+</div>
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    <li>
+                                        
+                                            <a href="/">
+                                        
+                                            
+                                                <i class="fa fa-home"></i>
+                                            
+                                            首页
+                                        </a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            <a href="/archives/">
+                                        
+                                            
+                                                <i class="fa fa-file"></i>
+                                            
+                                            档案馆
+                                        </a>
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            <a>
+                                        
+                                            
+                                                <i class="fa fa-link"></i>
+                                            
+                                            链接
+                                        </a>
+                                        
+                                            <ul class="sub-menu">
+                                                
+                                                    <li>
+                                                        <a target="_blank" rel="noopener" href="https://github.com/Candinya/Kratos-Rebirth">
+                                                            
+                                                                <i class="fa fa-code"></i>
+                                                            
+                                                            模板仓库
+                                                        </a>
+                                                    </li>
+                                                
+                                                    <li>
+                                                        <a target="_blank" rel="noopener" href="https://github.com/icyice-414/icyice-414.github.io">
+                                                            
+                                                                <i class="fa fa-book"></i>
+                                                            
+                                                            项目仓库
+                                                        </a>
+                                                    </li>
+                                                
+                                            </ul>
+                                        
+                                    </li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">icyice&#39;s SEKAI</a></div>
+                    <div id="kratos-nav-toggle-wrapper" class="nav-toggle">
+                        <a id="kratos-nav-toggle" class="kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>icyice&#39;s SEKAI</h2> <br />
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+
+
+        
+
+            
+
+            <section class="kr-main-col col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://example.com/1145/01/04/%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A6II/">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <header class="kratos-page-header">
+            
+                <h1 class="kratos-page-title text-center" itemprop="name headline">普通物理学II（H）</h1>
+            
+            <ul class="kratos-page-meta text-center">
+                <li><time datetime="1145-01-03T15:54:17.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 1145-01-04</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">icyice</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            1093
+                        
+                        字
+                    </li>
+                
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-page-content kr-post">
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">课程简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E8%AF%84%E4%BB%B7"><span class="toc-number">2.</span> <span class="toc-text">课程评价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-number">3.</span> <span class="toc-text">学习笔记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB"><span class="toc-number">4.</span> <span class="toc-text">资源分享</span></a></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><p>本篇文章主要分享<strong>普通物理学II</strong>课程的相关资料。</p>
+<span id="more"></span>
+
+<h3 id="课程简介"><a href="#课程简介" class="headerlink" title="课程简介"></a>课程简介</h3><ul>
+<li>课程编号：PHY2001GH</li>
+<li>学分：4.0</li>
+<li>课时：2+2</li>
+</ul>
+<h3 id="课程评价"><a href="#课程评价" class="headerlink" title="课程评价"></a>课程评价</h3><ul>
+<li>教师：方明虎</li>
+</ul>
+<p>同普通物理学I，普通物理学II是三门同一名字的不同课，其中王业伍老师一门，方明虎老师一门，其余老师一门。<br>笔者上的是方明虎老师的班，其他老师的的情报可以参考其余的学长。</p>
+<p>方明虎老师的普物II考察形式为平时+作业+期中+期末。和竺院其他老师不同的是，虎哥很喜欢点名，尤其喜欢早八点名。据本人所说可以一两次不来，但不能次次不来，所以如果翘课比较多的话可能会得到不大好看的分数。<br>作业是Physics II的课后题，网上能直接搜到答案。虎哥的期中一般是自己原创出题(大部分题目可以在历年卷里找到相似甚至相同的题目)，期末可能会在课后作业里抽几道题，难度一般不会很大。<br>普物II的期中内容基本上都是电磁学，而方明虎老师的期中是出了名的惨绝人寰(<s>2024级好像cc&#x2F;llk的期中更可怕</s>)，2024级期中不及格率高达80+%。不过也不用担心原始分很低，虎哥会通过神奇的赋分机制让总评变得好看一些。</p>
+<p>考试内容上，普物II主要考察电磁学、光学和原子物理。如果是方明虎老师班的，电磁学是绝对的大头，除了期中考全是巨难的电磁学以外，期末电磁学也占了相当高的比重，相比之下光学和量子物理则考的较为简单(甚至连续几年量子力学只考默写薛定谔方程)。</p>
+<p>方明虎老师(虎哥)是国际上知名的超导领域教授(<s>甚至花了一节导论课谈超导</s>)，而且虎哥也是难得的在教学领域也非常出众的教授。<br>虽然虎哥的电磁学很难(<s>好像和他上物理专业的电磁学是同一套PPT</s>)，但是虎哥上课很有激情，而且虎哥也是浙江物理多年的命题者，对学生的水平有充分了解，如果愿意回去好好看虎哥的PPT和智云的话，想必能收获颇多。<br>给分上，虎哥有一套神奇的赋分机制，前几年好像是期中期末取最高再开根乘十，今年机制未知(笔者期末光学大题整个空着最后拿了一个很离谱的分数)。<br>但是虎哥一定是会挂人的，而且虎哥的挂人取决于相对排名，只要脱离了最后五名基本上就不会挂。</p>
+<p>正如前文所言，虎哥非常喜欢电磁学，所以学习上建议对电磁学多下功夫。由于虎哥经常被抓去出首考卷，因此光学和量子力学部分经常由别的老师来上(2024级为万歆和路欣老师)，但考虑到虎哥光学和量子力学考察力度不大，因此只要在考前背一下基本的公式就差不多了。</p>
+<p>总体而言虎哥的课还是很值得一选的，但对于电磁学实在没有把握(物理游走在挂科线)的同学，保险起见可以考虑外教班，据说cc&#x2F;llk很少挂人。</p>
+<h3 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a>学习笔记</h3><blockquote>
+<p>⚠️ 暂未数字化。</p>
+</blockquote>
+<h3 id="资源分享"><a href="#资源分享" class="headerlink" title="资源分享"></a>资源分享</h3><blockquote>
+<p>Credit：</p>
+</blockquote>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <span itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</span>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            
+            
+                <div class="post-actions text-center clearfix" id="post-actions">
+                
+                    <a class="donate" href="javascript:;" onclick="krOpenDonateModal()"><i class="fa fa-bitcoin"></i> 打赏</a>
+                
+                
+                    <a class="share" href="javascript:;" onclick="krOpenShareModal()"><i class="fa fa-share-alt"></i> 分享</a>
+                
+                </div>
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A6/" rel="tag">普通物理学</a>, <a class="tag-none-link" href="/tags/%E6%B7%B7%E5%90%88/" rel="tag">混合</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2026-03-06T07:37:34.574Z" itemprop="dateModified">最后编辑：2026-03-06</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 普通物理学实验I" href="/1145/01/04/普通物理学实验I/"><i class="fa fa-angle-left"></i> 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 数学分析II（H）" href="/1145/01/04/数学分析II/">下一篇 <i class="fa fa-angle-right"></i></a>
+            </div>
+            
+        </nav>
+    
+    
+        <div class="comment-post">
+            
+        </div>
+    
+</article>
+
+        
+
+            </section>
+
+            
+                
+
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/assets/sign.png" alt="icyice" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                13
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                2
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                11
+            </span>
+        </a>
+    </div>
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E7%AE%80%E4%BB%8B"><span class="toc-text">课程简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E8%AF%84%E4%BB%B7"><span class="toc-text">课程评价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">学习笔记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB"><span class="toc-text">资源分享</span></a></li></ol>
+    </div>
+</aside>
+                
+                
+  <aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+    <h4 class="widget-title"><i class="fa fa-folder"></i>分类列表</h4>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E5%88%86%E4%BA%AB/">学习分享</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%BB%E8%A7%88%E6%96%87%E7%AB%A0/">总览文章</a><span class="category-list-count">1</span></li></ul>
+  </aside>
+
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 0.6em;">人工智能</a> <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" style="font-size: 0.6em;">信号与系统</a> <a href="/tags/%E4%BF%A1%E7%94%B5/" style="font-size: 0.73em;">信电</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%9B%BE%E5%AD%A6/" style="font-size: 0.6em;">工程图学</a> <a href="/tags/%E6%95%B0%E5%AD%97%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/" style="font-size: 0.6em;">数字系统设计</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" style="font-size: 0.6em;">数学分析</a> <a href="/tags/%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A6/" style="font-size: 0.67em;">普通物理学</a> <a href="/tags/%E6%99%AE%E9%80%9A%E7%89%A9%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C/" style="font-size: 0.67em;">普通物理学实验</a> <a href="/tags/%E6%B7%B7%E5%90%88/" style="font-size: 0.8em;">混合</a> <a href="/tags/%E7%94%B5%E7%A3%81%E5%9C%BA%E4%B8%8E%E7%94%B5%E7%A3%81%E6%B3%A2/" style="font-size: 0.6em;">电磁场与电磁波</a> <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" style="font-size: 0.6em;">线性代数</a>
+      </div>
+  </aside>
+
+            
+                
+  <aside id="krw-posts" class="widget widget-kratos-posts">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2077/01/01/welcome/"><i class="fa fa-book"></i> WELCOME</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2026/01/01/%E6%B7%B7%E5%90%88%E4%BF%A1%E7%94%B5%E5%88%86%E4%BA%AB/"><i class="fa fa-book"></i> 混合信电er的分享</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/1145/01/04/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><i class="fa fa-book"></i> 人工智能（更新中）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/1145/01/04/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/"><i class="fa fa-book"></i> 信号与系统（更新中）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/1145/01/04/%E5%B7%A5%E7%A8%8B%E5%9B%BE%E5%AD%A6/"><i class="fa fa-book"></i> 工程图学（H）</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+            
+    </div>
+</section>
+            
+
+        
+
+                </div>
+    </div>
+</div>
+
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                            <li>
+                                <a href="https://github.com/icyice-414/icyice-414.github.io" target="_blank" rel="nofollow">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="/atom.xml" target="_blank" rel="nofollow">
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2026 icyice's SEKAI 版权所有.</li>
+                            <li>本站已在风雨中飘摇<span id="kr-since">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>自豪地使用 <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a> 主题</li>
+                            <li>站点由 <a href="https://github.com/icyice-414" target="_blank">icyice</a> 用 <i class="fa fa-heart" style="color:#d43f57"></i> 搭建</li>
+                        </div>
+                        <!-- 额外的追加注入项 -->
+                        
+                            <div>
+                                
+                                    <li>由 <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a> 强力驱动</li>
+                                
+                                    <li>在 <a href="https://github.io" target="_blank">Github Pages</a> 暖心托管</li>
+                                
+                            </div>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                <div class="box theme-box" id="theme-toggle">
+                    <span class="fa fa-adjust"></span>
+                </div>
+            </div>
+            <div id="gotop-box" class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+
+    <div id="kr-donate-modal" class="kr-modal">
+    <div class="kr-modal-bg" onclick="krCloseDonateModal()"></div>
+    <div class="kr-modal-content">
+        <div class="kr-modal-header">
+            <div class="kr-modal-icon">
+                <i class="fa fa-bitcoin"></i>
+            </div>
+            <div class="kr-modal-title">赞助喵</div>
+            <button class="kr-modal-close" onclick="krCloseDonateModal()">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </div>
+        <div class="kr-modal-body">
+            <div class="kr-donate-message">非常感谢您的喜欢！ <i class="fa fa-heart" style="color:#d43f57"></i></div>
+            <div class="kr-donate-qr" id="kr-donate-qr">
+                
+                    <img class="kr-donate-placeholder" src="https://dev.krt.moe/demo-assets/donate.webp" alt="赞助喵" />
+                
+            </div>
+            <div class="kr-donate-platforms">
+                
+                    
+                        <button class="kr-donate-platform-button" style="color: skyblue;" title="模拟支付" onclick="krDonateModalShowPlatformQR('example_payment', 'skyblue')">
+                            <i class="fa fa-credit-card"></i>
+                        </button>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/js/kr-modal/donate.min.js"></script>
+
+
+
+
+    <div id="kr-share-modal" class="kr-modal">
+    <div class="kr-modal-bg" onclick="krCloseShareModal()"></div>
+    <div class="kr-modal-content">
+        <div class="kr-modal-header">
+            <div class="kr-modal-icon">
+                <i class="fa fa-share-alt"></i>
+            </div>
+            <div class="kr-modal-title">分享这一刻</div>
+            <button class="kr-modal-close" onclick="krCloseShareModal()">
+                <i class="fa fa-times-circle"></i>
+            </button>
+        </div>
+        <div class="kr-modal-body">
+            <div class="kr-share-message">让朋友们也来瞅瞅！</div>
+            <div class="kr-share-qr" id="kr-share-qr"></div>
+            <div class="kr-share-platforms">
+                
+                    <button class="kr-share-platform-button" style="color: #62b6e7;" title="喵窝" onclick="krShareModalOpenPlatform('https://nya.one/share?text=%3E%20$TITLE%0A%3E%0A%3E%20$SUMMARY%0A----%20$SITE%0A%0A$URL')">
+                        <svg fill="currentColor" width="18" height="18" viewBox="0 0 329 388"><path d="M0,36.226c0,-19.993 16.233,-36.226 36.226,-36.226c13.788,0 25.787,7.719 31.908,19.068l188.366,229.845l0,-111.259c-6.356,5.508 -14.645,8.843 -23.707,8.843c-19.994,0 -36.226,-16.232 -36.226,-36.226c-0,-8.551 2.968,-16.413 7.93,-22.613l-0.015,-0.013l56.614,-69.08c6.2,-11.073 18.047,-18.565 31.63,-18.565c19.994,0 36.227,16.233 36.227,36.226l-0,314.644c-0,19.994 -16.233,36.226 -36.227,36.226c-13.166,0 -24.701,-7.039 -31.044,-17.555l-189.229,-230.899l-0,212.228c-0,19.994 -16.233,36.226 -36.227,36.226c-19.993,0 -36.226,-16.232 -36.226,-36.226l0,-314.644Z" /></svg>
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="/js/kr-modal/share.min.js"></script>
+
+
+
+<!-- 额外的追加注入项 -->
+
+
+        <script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+  <script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+
+
+
+  <script defer src="/vendors/viewerjs@1.11.6/dist/viewer.min.js"></script>
+
+
+<script defer src="/js/kr-core.min.js"></script>
+
+
+  <script defer src="/js/kr-pjax.min.js"></script>
+
+
+<!-- 额外的追加注入项 -->
+
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":225,"height":450},"mobile":{"show":true},"log":false});</script></body>
+</html>
