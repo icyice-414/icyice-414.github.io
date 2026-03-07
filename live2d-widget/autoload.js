@@ -239,7 +239,7 @@ function createChatPanel() {
     cubism5Path: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
     tools: ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit'],
     logLevel: 'warn',
-    drag: true,
+    drag: false,
     });
 
     createChatPanel();
