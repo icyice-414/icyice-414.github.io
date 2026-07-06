@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历年试卷</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <style>
+        /* 全局样式（与之前相同，略作调整） */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, sans-serif;
+            background: #f5f7fa;
+        }
+        #app {
+            display: flex;
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 40px);
+        }
+        .sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 24px;
+            padding: 24px 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            height: fit-content;
+        }
+        .sidebar h3 {
+            margin: 0 0 16px 8px;
+            color: #4a5568;
+            font-size: 1.2rem;
+        }
+        .file-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .file-btn {
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            border-radius: 16px;
+            font-size: 1rem;
+            color: #2d3748;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .file-btn:hover { background: #edf2f7; }
+        .file-btn.active {
+            background: #3182ce;
+            color: white;
+            box-shadow: 0 4px 12px rgba(49,130,206,0.3);
+        }
+        .pdf-viewer {
+            flex: 1;
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+        }
+        .pdf-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .nav-buttons button {
+            background: #edf2f7;
+            border: none;
+            border-radius: 30px;
+            padding: 6px 16px;
+            margin-left: 8px;
+            cursor: pointer;
+        }
+        #pdf-container {
+            width: 100%;
+            height: 600px;
+            overflow: auto;
+            background: #f1f5f9;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        canvas { box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-radius: 8px; }
+        .loading { text-align: center; color: #718096; padding: 40px; }
+        @media (max-width: 640px) {
+            #app { flex-direction: column; }
+            .sidebar { width: 100%; }
+            .file-list { flex-direction: row; flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="sidebar">
+            <h3>📄 试卷列表</h3>
+            <div class="file-list" id="fileList"></div>
+        </div>
+        <div class="pdf-viewer">
+            <div class="pdf-header">
+                <span id="currentFileLabel">2025 年试卷</span>
+                <div class="nav-buttons">
+                    <button id="prevPage" disabled>◀ 上一页</button>
+                    <span id="pageNum">1</span> / <span id="pageCount">?</span>
+                    <button id="nextPage" disabled>下一页 ▶</button>
+                </div>
+            </div>
+            <div id="pdf-container">
+                <div id="loading" class="loading">📄 加载中...</div>
+                <canvas id="pdfCanvas" style="display: none;"></canvas>
+            </div>
+        </div>
+    </div>
+
+<pre><code>&lt;script&gt;
+    (function() {
+        // --- 配置区域 ---
+        const basePdfUrl = &#39;/papers/&#39;;          // PDF 存放的基础路径
+        const jsonUrl = &#39;/papers/list.json&#39;;     // 自动生成的 JSON 列表路径
+
+        // --- DOM 元素 ---
+        const fileListEl = document.getElementById(&#39;fileList&#39;);
+        const currentLabel = document.getElementById(&#39;currentFileLabel&#39;);
+        const pdfCanvas = document.getElementById(&#39;pdfCanvas&#39;);
+        const pdfContainer = document.getElementById(&#39;pdf-container&#39;);
+        const loadingEl = document.getElementById(&#39;loading&#39;);
+        const prevBtn = document.getElementById(&#39;prevPage&#39;);
+        const nextBtn = document.getElementById(&#39;nextPage&#39;);
+        const pageNumSpan = document.getElementById(&#39;pageNum&#39;);
+        const pageCountSpan = document.getElementById(&#39;pageCount&#39;);
+
+        // --- 状态 ---
+        let items = [];            // 从 JSON 获取的文件名列表（无扩展名）
+        let currentItem = null;
+        let pdfDoc = null;
+        let currentPage = 1;
+        let totalPages = 0;
+
+        // --- 获取文件列表 ---
+        async function fetchItems() {
+            try {
+                const res = await fetch(jsonUrl);
+                if (!res.ok) throw new Error(&#39;网络错误&#39;);
+                items = await res.json();
+                if (items.length === 0) {
+                    loadingEl.textContent = &#39;暂无试卷&#39;;
+                    return;
+                }
+                currentItem = items[0];
+                renderSidebar();
+                currentLabel.textContent = currentItem;
+                loadPdf(currentItem);
+            } catch (err) {
+                console.error(&#39;列表加载失败&#39;, err);
+                loadingEl.textContent = &#39;❌ 加载列表失败&#39;;
+            }
+        }
+
+        // --- 渲染侧边栏按钮 ---
+        function renderSidebar() {
+            fileListEl.innerHTML = &#39;&#39;;
+            items.forEach(item =&gt; {
+                const btn = document.createElement(&#39;button&#39;);
+                btn.className = &#39;file-btn&#39; + (item === currentItem ? &#39; active&#39; : &#39;&#39;);
+                btn.textContent = item;
+                btn.addEventListener(&#39;click&#39;, () =&gt; {
+                    if (item === currentItem) return;
+                    document.querySelectorAll(&#39;.file-btn&#39;).forEach(b =&gt; b.classList.remove(&#39;active&#39;));
+                    btn.classList.add(&#39;active&#39;);
+                    currentItem = item;
+                    currentLabel.textContent = item;
+                    loadPdf(item);
+                });
+                fileListEl.appendChild(btn);
+            });
+        }
+
+        // --- 加载 PDF ---
+        async function loadPdf(item) {
+            loadingEl.style.display = &#39;block&#39;;
+            pdfCanvas.style.display = &#39;none&#39;;
+            prevBtn.disabled = true;
+            nextBtn.disabled = true;
+            pageNumSpan.textContent = &#39;1&#39;;
+            pageCountSpan.textContent = &#39;?&#39;;
+
+            const url = basePdfUrl + item + &#39;.pdf&#39;;
+            try {
+                if (pdfDoc) pdfDoc.destroy();
+                pdfDoc = await pdfjsLib.getDocument(url).promise;
+                totalPages = pdfDoc.numPages;
+                pageCountSpan.textContent = totalPages;
+                currentPage = 1;
+                await renderPage(currentPage);
+                updateNavButtons();
+                pdfCanvas.style.display = &#39;block&#39;;
+                loadingEl.style.display = &#39;none&#39;;
+            } catch (err) {
+                console.error(&#39;PDF 加载失败&#39;, err);
+                loadingEl.textContent = &#39;❌ 加载失败&#39;;
+            }
+        }
+
+        async function renderPage(pageNum) {
+            const page = await pdfDoc.getPage(pageNum);
+            const viewport = page.getViewport({ scale: 1.5 });
+            const canvas = pdfCanvas;
+            const ctx = canvas.getContext(&#39;2d&#39;);
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            await page.render({ canvasContext: ctx, viewport }).promise;
+            pageNumSpan.textContent = pageNum;
+        }
+
+        function updateNavButtons() {
+            prevBtn.disabled = (currentPage &lt;= 1);
+            nextBtn.disabled = (currentPage &gt;= totalPages);
+        }
+
+        prevBtn.addEventListener(&#39;click&#39;, async () =&gt; {
+            if (currentPage &gt; 1) {
+                currentPage--;
+                await renderPage(currentPage);
+                updateNavButtons();
+            }
+        });
+        nextBtn.addEventListener(&#39;click&#39;, async () =&gt; {
+            if (currentPage &lt; totalPages) {
+                currentPage++;
+                await renderPage(currentPage);
+                updateNavButtons();
+            }
+        });
+
+        // --- 初始化 ---
+        if (document.readyState === &#39;loading&#39;) {
+            document.addEventListener(&#39;DOMContentLoaded&#39;, fetchItems);
+        } else {
+            fetchItems();
+        }
+    })();
+&lt;/script&gt;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"Version":3,"FileReferences":{"Moc":"MousseJiu1.0.moc3","Textures":["MousseJiu1.0.4096/texture_00.png"],"Physics":"MousseJiu1.0.physics3.json","DisplayInfo":"MousseJiu1.0.cdi3.json"},"Groups":[{"Target":"Parameter","Name":"EyeBlink","Ids":["ParamEyeLOpen","ParamEyeROpen"]},{"Target":"Parameter","Name":"LipSync","Ids":["ParamMouthForm","ParamMouthOpenY"]}]}
